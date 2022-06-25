@@ -19,22 +19,19 @@
         </form>
     </div>
 <!-- chatlist [contain people's list whose chat has been initiated] -->
-    <div class="chat-list py-1">
+    <div class="chat-list py-1 h-75">
         <ul class="list-group">
-            <li class="list-group-item d-flex p-0">
-                <div class="d-flex flex-row">
-                    <img [src]="profileImg">
+            <li class="list-group-item d-flex p-0" *ngFor="let eachContact of Localcontact">
+                <div class="d-flex flex-row align-items-center">
+                    <div *ngIf="checkProfileImg(eachContact['profile']); then defaultProfile else userProfile"></div>
+                    <ng-template #defaultProfile>
+                        <img [src]="profileImg">
+                    </ng-template>
+                    <ng-template #userProfile>
+                        <img class="profile-img m-1" [src]="eachContact['profile']">
+                    </ng-template>
                     <div class="d-flex flex-column">
-                        <label class="h-50 pt-2"><strong>User Name1</strong></label>
-                        <p class="m-0 text-black-50">latest message</p>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item d-flex p-0">
-                <div class="d-flex flex-row">
-                    <img [src]="profileImg">
-                    <div class="d-flex flex-column">
-                        <label class="h-50 pt-2"><strong>User Name2</strong></label>
+                        <label class="h-50 pt-2"><strong>{{eachContact['name']}}</strong></label>
                         <p class="m-0 text-black-50">latest message</p>
                     </div>
                 </div>
