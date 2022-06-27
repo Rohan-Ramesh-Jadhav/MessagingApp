@@ -1,0 +1,663 @@
+
+{"contacts": [
+    {
+      phone:'9449701958',
+      name:'Ramesh',
+      state:false,
+      profile:null
+    },
+    {
+      phone:'8861681649',
+      name:'Rahul',
+      state:true,
+      profile:'../assets/profile-pics/profile1.jpg'
+    },
+    {
+      phone:'7411193649',
+      name:'Chetan',
+      state:true,
+      profile:null
+    },
+    {
+      phone:'9825673875',
+      name:'Suman',
+      state:true,
+      profile:null
+    },
+    {
+      phone:'8876725364',
+      name:'Sheetal',
+      state:true,
+      profile:null
+    },
+    {
+      phone:'9449868726',
+      name:'Sagar',
+      state:true,
+      profile:'../assets/profile-pics/profile2.jpg'
+    },
+    {
+      phone:'7111897654',
+      name:'Simran',
+      state:true,
+      profile:'../assets/profile-pics/profile3.jpeg'
+    },
+    {
+      phone:'9987095432',
+      name:'Kamal',
+      state:false,
+      profile:null
+    },
+    {
+      phone:'9879876546',
+      name:'Karan',
+      state:true,
+      profile:null
+    },
+    {
+      phone:'7869876541',
+      name:'Ramesh',
+      state:true,
+      profile:'../assets/profile-pics/profile4.png'
+    },
+    {
+      phone:'6678654390',
+      name:'Kumar',
+      state:true,
+      profile:'../assets/profile-pics/profile5.jpg'
+    },
+    {
+      phone:'8760985432',
+      name:'Ramesh',
+      state:true,
+      profile:null
+    },
+    {
+      phone:'8889876543',
+      name:'Ramesh K',
+      state:false,
+      profile:null
+    },
+    {
+      phone:'6698760987',
+      name:'Hinna',
+      state:true,
+      profile:null
+    },
+  ];
+}
+{
+  "messages":[
+    {
+      phone:'8876725364',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'Ok man.',
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+    {
+      phone:'8861681649',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+    {
+      phone: '7411193649',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'Ok man.',
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+    {
+      phone: '9825673875',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'Ok man.',
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+    {
+      phone: '8876725364',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'Ok man.',
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+    {
+      phone: '9449868726',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'Ok man.',
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+    {
+      phone: '7111897654',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'Ok man.',
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+    {
+      phone: '9987095432',
+      sent:{
+        msg1:{
+          txt: 'Good Morning',
+          time: '10:30',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'I hope you are doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Are you coming to office today?',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `That's great. I want some help from you. Could you please bring the smart project file with you?`,
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'I want to see the pricing of the materials estimated so that I can plan for reduction and ajustments.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg6:{
+          txt: 'Great man, I will be the great help. Thanks a lot.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg7:{
+          txt: 'I will see you in the office later then.',
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg8:{
+          txt: 'c ya.',
+          time: '10:35',
+          date: '26/06/2022'
+        }
+      },
+      recived:{
+        msg1:{
+          txt: 'Good Morning bro',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg2:{
+          txt: 'Yeah man, I am doing good.',
+          time: '10:32',
+          date: '26/06/2022'
+        },
+        msg3:{
+          txt: 'Yes I will be there at office by 12PM.',
+          time: '10:33',
+          date: '26/06/2022'
+        },
+        msg4:{
+          txt: `Sure man I will bring it with me.`,
+          time: '10:35',
+          date: '26/06/2022'
+        },
+        msg5:{
+          txt: 'Ok man.',
+          time: '10:36',
+          date: '26/06/2022'
+        }
+      }
+    },
+  ]
+}

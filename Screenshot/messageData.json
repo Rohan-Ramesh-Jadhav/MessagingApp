@@ -1,13 +1,6 @@
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class MessagesErviceService {
-  user:string = 'user1';
-  messageData: Object = {
+{
     "user1": {
-        "profileImg": "../assets/profile-pics/profile1.jpg",
+        "profileImg": "profile_picture.jpg",
         "muted": true,
         "chats": [
             {
@@ -41,7 +34,7 @@ export class MessagesErviceService {
                 "color": "#34eb8c"
             },
             {
-                "message": "good night all",
+                "message": "last meaage 1",
                 "name": "akasas",
                 "time": "9:05AM",
                 "color": "#ebc634"
@@ -49,7 +42,7 @@ export class MessagesErviceService {
         ]
     },
     "user2": {
-        "profileImg": "../assets/profile-pics/profile2.jpg",
+        "profileImg": "chatareaprofile.png",
         "muted": false,
         "chats": [
             {
@@ -91,7 +84,7 @@ export class MessagesErviceService {
         ]
     },
     "user3": {
-        "profileImg": "../assets/profile-pics/profile3.jpeg",
+        "profileImg": "one.jpg",
         "muted": false,
         "chats": [
             {
@@ -133,7 +126,7 @@ export class MessagesErviceService {
         ]
     },
     "user4": {
-        "profileImg": "../assets/profile-pics/profile4.png",
+        "profileImg": "two.jpg",
         "muted": true,
         "chats": [
             {
@@ -175,7 +168,7 @@ export class MessagesErviceService {
         ]
     },
     "user5": {
-        "profileImg": "../assets/profile-pics/profile5.jpg",
+        "profileImg": "chatareaprofile.png",
         "muted": false,
         "chats": [
             {
@@ -217,7 +210,7 @@ export class MessagesErviceService {
         ]
     },
     "user6": {
-        "profileImg": "../assets/user-large.png",
+        "profileImg": "three.jpg",
         "muted": true,
         "chats": [
             {
@@ -259,7 +252,7 @@ export class MessagesErviceService {
         ]
     },
     "user7": {
-        "profileImg": "../assets/user-large.png",
+        "profileImg": "one.jpg",
         "muted": true,
         "chats": [
             {
@@ -301,7 +294,7 @@ export class MessagesErviceService {
         ]
     },
     "user8": {
-        "profileImg": "../assets/user-large.png",
+        "profileImg": "three.jpg",
         "muted": false,
         "chats": [
             {
@@ -352,5 +345,4 @@ export class MessagesErviceService {
         "user7",
         "user8"
     ]
-  }
 }

@@ -1,0 +1,22 @@
+.message-window{
+    background-color: #dddcdc;
+}
+
+.profile-name{
+    font-weight: bold;
+}
+
+.group-info{
+    font-size: 15px;
+    color: gray;
+}
+
+.mx-6{
+    margin-right: 7rem !important;
+    margin-left: 7rem !important;
+}
+
+.messaging-window{
+    overflow-y: scroll;
+    height: 70vh;
+}
