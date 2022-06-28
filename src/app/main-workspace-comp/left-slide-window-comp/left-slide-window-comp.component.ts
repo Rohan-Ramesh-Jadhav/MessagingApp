@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MessagesErviceService } from '../messageSerice/messages-ervice.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MessagesErviceService } from '../messageSerice/messages-ervice.service'
     MessagesErviceService
   ]
 })
-export class LeftSlideWindowCompComponent {
+export class LeftSlideWindowCompComponent{
   profileImg: string = '../../assets/user-large.png';
   messageImg: string = '../../assets/message-large.png';
   toggleImg: string = '../../assets/toggle-large.png';
@@ -21,6 +21,8 @@ export class LeftSlideWindowCompComponent {
 //this is local variable for contact and messages
   Localcontact: any;  
   leftSlideMessageData: string[] = [];
+  @Input() userChat:string='';
+  @Output() newUser = new EventEmitter<string>();
 
   constructor(private msgService: MessagesErviceService){
 // call to the member function to filter the list and set the needed data.  
@@ -136,5 +138,17 @@ export class LeftSlideWindowCompComponent {
         return Object.values(innerData)[1];
       }
     }
+  }
+// function to change chat to be showed on message box
+  changeChat(eachContact:string){
+    this.newUser.emit(eachContact);
+  }
+//for styling the user
+  checkUser(eachContact:string){
+    if(this.userChat==eachContact)
+    {
+      return '#b1aeae30';
+    }
+    return '';
   }
 }

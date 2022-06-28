@@ -1,6 +1,6 @@
 <div class="main-window-container d-flex">
 <!-- left slide window component -->
-    <app-left-slide-window-comp></app-left-slide-window-comp>
+    <app-left-slide-window-comp [userChat]="userMain" (newUser)="changeUser($event)"></app-left-slide-window-comp>
 <!-- Messaging window component -->
-    <app-messaging-window-comp class="w-100" style="background-image: url('../../assets/whatsapp-background.jpg');"></app-messaging-window-comp>
+    <app-messaging-window-comp [userChat]="userMain" class="w-100" style="background-image: url('../../assets/whatsapp-background.jpg');"></app-messaging-window-comp>
 </div>

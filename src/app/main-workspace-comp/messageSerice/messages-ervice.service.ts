@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class MessagesErviceService {
-  user:string = 'user1';
-  messageData: Object = {
+
+  messageData: any = {
     "user1": {
         "profileImg": "../assets/profile-pics/profile1.jpg",
         "muted": true,
@@ -352,5 +353,21 @@ export class MessagesErviceService {
         "user7",
         "user8"
     ]
+  }
+
+// function will add the messages to the JSON list
+  addChatFun(currentMessage:any[]){
+    let messageToInsert:object = {
+        "message":currentMessage[0],
+        "name": "you",
+        "time": currentMessage[2],
+        "color": currentMessage[3]
+    };
+    
+    let userIndex = currentMessage[1];
+
+    
+    this.messageData[userIndex]['chats'].push(messageToInsert)
+    console.log(this.messageData);
   }
 }

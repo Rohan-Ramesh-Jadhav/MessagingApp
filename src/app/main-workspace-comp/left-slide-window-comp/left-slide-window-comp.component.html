@@ -22,7 +22,7 @@
     <div class="chat-list py-1 h-75">
         <ul class="list-group">
 <!-- looping through all contact least -->
-            <li class="list-group-item d-flex p-0 justify-content-between px-2" *ngFor="let eachContact of Localcontact">
+            <li class="list-group-item d-flex p-0 justify-content-between px-2" *ngFor="let eachContact of Localcontact" [ngStyle]="{'background-color':checkUser(eachContact),'cursor':'pointer'}" (click)="changeChat(eachContact)">
                 <div class="d-flex flex-row align-items-center">
 <!-- this condition will check is profile set or not -->
                     <div *ngIf="checkDefaultImg(eachContact); then default; else userPro"></div>
@@ -34,7 +34,7 @@
                     </ng-template>
 <!-- this section will update the last message and contact/group name -->
                     <div class="d-flex flex-column">
-                        <label class="h-50 pt-2"><strong>{{eachContact}}</strong></label>
+                        <label class="h-50 pt-2" style="cursor:pointer"><strong>{{eachContact}}</strong></label>
                         <p class="m-0 text-black-50 last-updated-time" [innerText]="lastMessageFun(eachContact)"></p>
                     </div>
                 </div>

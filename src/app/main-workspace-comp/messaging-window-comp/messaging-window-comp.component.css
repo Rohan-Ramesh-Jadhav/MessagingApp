@@ -1,3 +1,9 @@
+.profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 27px;
+}
+
 .message-window{
     background-color: #dddcdc;
 }
@@ -12,11 +18,31 @@
 }
 
 .mx-6{
-    margin-right: 7rem !important;
-    margin-left: 7rem !important;
+    margin-right: 9rem !important;
+    margin-left: 9rem !important;
 }
 
 .messaging-window{
     overflow-y: scroll;
-    height: 70vh;
+    height: 61.2vh;
+}
+
+.texting-section{
+    background-color: #dddcdc;
+}
+
+.text-bar-icons{
+    width:80%;
+}
+
+.text-link{
+    width:70%;
+}
+
+.text{
+    font-size: 14px;
+}
+
+.txt-send-btn{
+    height:93%;
 }
