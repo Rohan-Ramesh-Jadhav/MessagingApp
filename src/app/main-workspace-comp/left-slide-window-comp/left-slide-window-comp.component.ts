@@ -1,15 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { MessagesErviceService } from '../messageSerice/messages-ervice.service';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-left-slide-window-comp',
   templateUrl: './left-slide-window-comp.component.html',
   styleUrls: ['./left-slide-window-comp.component.css'],
-  providers: [
-    MessagesErviceService
-  ]
 })
-export class LeftSlideWindowCompComponent{
+export class LeftSlideWindowCompComponent implements OnChanges{
   profileImg: string = '../../assets/user-large.png';
   messageImg: string = '../../assets/message-large.png';
   toggleImg: string = '../../assets/toggle-large.png';
@@ -20,28 +16,32 @@ export class LeftSlideWindowCompComponent{
 
 //this is local variable for contact and messages
   Localcontact: any;  
+  LocalcontactNew:any;
   leftSlideMessageData: string[] = [];
   @Input() userChat:string='';
   @Output() newUser = new EventEmitter<string>();
+  @Input() jsonData:any = '';
 
-  constructor(private msgService: MessagesErviceService){
-// call to the member function to filter the list and set the needed data.  
-    this.filterContacts();
+  constructor(){
+    
   }  
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.filterContacts();
+  }
 
 //member function which will initiate the population of data.
   filterContacts(){
-    let allValues:string[] = Object.values(this.msgService.messageData);
-    this.Localcontact = allValues[allValues.length-1];
+    let allValues:string[] = Object.values(this.jsonData);
+    this.LocalcontactNew = this.Localcontact = allValues[allValues.length-1];
   }
 // function will set profile pic to the user
   profilePic(user:any){
     let allKeys:string[] = [];
     let allvalues:object[] = [];
-    let innerKeys:object[] = [];
 
-    allKeys = Object.keys(this.msgService.messageData);
-    allvalues = Object.values(this.msgService.messageData);
+    allKeys = Object.keys(this.jsonData);
+    allvalues = Object.values(this.jsonData);
 
     for(let eachKey in allKeys)
     {
@@ -56,10 +56,9 @@ export class LeftSlideWindowCompComponent{
   checkDefaultImg(user:string){
     let allKeys:string[] = [];
     let allvalues:object[] = [];
-    let innerKeys:object[] = [];
 
-    allKeys = Object.keys(this.msgService.messageData);
-    allvalues = Object.values(this.msgService.messageData);
+    allKeys = Object.keys(this.jsonData);
+    allvalues = Object.values(this.jsonData);
 
     for(let eachKey in allKeys)
     {
@@ -82,10 +81,9 @@ export class LeftSlideWindowCompComponent{
   lastMessageFun(user:string){
     let allKeys:string[] = [];
     let allvalues:object[] = [];
-    let innerKeys:object[] = [];
 
-    allKeys = Object.keys(this.msgService.messageData);
-    allvalues = Object.values(this.msgService.messageData);
+    allKeys = Object.keys(this.jsonData);
+    allvalues = Object.values(this.jsonData);
 
     for(let eachKey in allKeys)
     {
@@ -105,8 +103,8 @@ export class LeftSlideWindowCompComponent{
     let allKeys:string[] = [];
     let allvalues:object[] = [];
 
-    allKeys = Object.keys(this.msgService.messageData);
-    allvalues = Object.values(this.msgService.messageData);
+    allKeys = Object.keys(this.jsonData);
+    allvalues = Object.values(this.jsonData);
 
     for(let eachKey in allKeys)
     {
@@ -124,10 +122,9 @@ export class LeftSlideWindowCompComponent{
   {
     let allKeys:string[] = [];
     let allvalues:object[] = [];
-    let innerKeys:object[] = [];
 
-    allKeys = Object.keys(this.msgService.messageData);
-    allvalues = Object.values(this.msgService.messageData);
+    allKeys = Object.keys(this.jsonData);
+    allvalues = Object.values(this.jsonData);
 
     for(let eachKey in allKeys)
     {
@@ -150,4 +147,18 @@ export class LeftSlideWindowCompComponent{
     }
     return '';
   }
+// function to filter the user based on the search
+  	filterUserList(serchVal:string){
+		this.Localcontact = this.LocalcontactNew;  
+		let TmpLocalcontactNew = [];
+		for(let eachUser in this.Localcontact)
+		{
+			let matchString = this.Localcontact[eachUser].substring(0,serchVal.length)
+			if(matchString.toLowerCase()===serchVal.toLowerCase())
+			{
+				TmpLocalcontactNew.push(this.Localcontact[eachUser])
+			}
+		}
+		this.Localcontact = TmpLocalcontactNew;
+  	}
 }

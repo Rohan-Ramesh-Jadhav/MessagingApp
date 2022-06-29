@@ -1,13 +1,9 @@
-import { Component, Input, ViewChild, DoCheck } from '@angular/core';
-import { MessagesErviceService } from '../messageSerice/messages-ervice.service';
+import { Component, Input, ViewChild, DoCheck, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-messaging-window-comp',
   templateUrl: './messaging-window-comp.component.html',
   styleUrls: ['./messaging-window-comp.component.css'],
-  providers: [
-    MessagesErviceService
-  ]
 })
 export class MessagingWindowCompComponent implements DoCheck{
 	@ViewChild('messageContainer', {static: true}) scrollEle: any;
@@ -17,13 +13,13 @@ export class MessagingWindowCompComponent implements DoCheck{
 	groupMembers:any;
 	currentChatTime:Date=new Date();
 
-	constructor(private msgService:MessagesErviceService) { 
+	constructor() { 
 		
 	}
 
 	ngDoCheck(): void {
 		this.scrollEle.nativeElement.scrollTop = this.scrollEle.nativeElement.scrollHeight;
-		setInterval(()=>{this.messagesFun();},100);
+		setTimeout(()=>{this.messagesFun();},100);
 	}
 
 	//image urls
@@ -36,13 +32,15 @@ export class MessagingWindowCompComponent implements DoCheck{
 	sentImg: string = '../../assets/sent-large.png';
 
 	@Input() userChat = '';
+	@Input() jsonData:any = '';
+	@Output() newMessage = new EventEmitter<object>();
 	//function for message
 	messagesFun(){
 		let allKeys:string[] = [];
 		let allvalues:object[] = [];
 		
-		allKeys = Object.keys(this.msgService.messageData);
-		allvalues = Object.values(this.msgService.messageData);
+		allKeys = Object.keys(this.jsonData);
+		allvalues = Object.values(this.jsonData);
 	//initiate the message
 		for(let eachKey in allKeys)
 		{
@@ -55,8 +53,8 @@ export class MessagingWindowCompComponent implements DoCheck{
 	}
 	// function to set group profile
 	getGroupProfile(){
-		let key:number = (Object.keys(this.msgService.messageData).indexOf(this.userChat));
-		return this.msgService.messageData[this.userChat]['profileImg'];
+		let key:number = (Object.keys(this.jsonData).indexOf(this.userChat));
+		return this.jsonData[this.userChat]['profileImg'];
 	}
 	// profile name/ group name
 	proGroupName(){
@@ -108,10 +106,17 @@ export class MessagingWindowCompComponent implements DoCheck{
 		// this.scrollEle.nativeElement.scrollTop = this.scrollEle.nativeElement.scrollHeight;
 		this.groupInfoArr = '';
 		let setOfChar:string = 'abcdef1234567890';
-		let colorCode = '#'+(setOfChar.split('').sort(() => Math.random() - 0.5).join('')).substring(0,6)
-		let chatTime = this.currentChatTime.getHours()+':'+this.currentChatTime.getMinutes();
+		let colorCode = '#'+(setOfChar.split('').sort(() => Math.random() - 0.5).join('')).substring(0,6);
+		let chatTime:string;
+		if(this.currentChatTime.getHours()>12)
+		{
+			chatTime = this.currentChatTime.getHours()-12+':'+this.currentChatTime.getMinutes()+'PM';
+		}
+		else
+		{
+			chatTime = this.currentChatTime.getHours()+':'+this.currentChatTime.getMinutes()+'AM';
+		}
 		let textData:any[] = [txt, this.userChat, chatTime, colorCode];
-		this.msgService.addChatFun(textData);
-		
+		this.newMessage.emit(textData);
 	}
 }

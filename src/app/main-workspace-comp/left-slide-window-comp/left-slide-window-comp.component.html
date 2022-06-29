@@ -13,10 +13,10 @@
     </div>
 <!-- search bar -->
     <div class="d-flex">
-        <form class="input-group search-input m-1">
+        <div class="input-group search-input m-1">
             <button class="btn btn-light"><img class="w-50" [src]="searchImg"></button>
-            <input class="form-control border-0" type="search" placeholder="Search people">
-        </form>
+            <input #userSearch (keyup)="filterUserList(userSearch.value)" class="form-control border-0" type="text" placeholder="Search people">
+        </div>
     </div>
 <!-- chatlist [contain people's list whose chat has been initiated] -->
     <div class="chat-list py-1 h-75">
