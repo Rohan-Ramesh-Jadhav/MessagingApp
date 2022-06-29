@@ -50,7 +50,7 @@
         </div>
         <div class="d-flex flex-fill input-group align-items-center">
             <input #newText type="text" class="form-control" placeholder="Text here" (keyup.enter)="[addText(newText.value),newText.value='']">
-            <button class="btn btn-light txt-send-btn p-0" (click)="addText(newText.value)"><img class="w-50" [src]="sentImg"></button>
+            <button class="btn btn-light txt-send-btn p-0" (click)="[addText(newText.value),newText.value='']"><img class="w-50" [src]="sentImg"></button>
         </div>    
         <div class="d-flex justify-content-center align-items-center">
            <a class="text-link" href="#"><img class="text-bar-icons" [src]="micImg"></a>
