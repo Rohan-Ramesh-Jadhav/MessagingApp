@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, DoCheck } from '@angular/core';
 import { MessagesErviceService } from '../messageSerice/messages-ervice.service';
 
 @Component({
@@ -9,11 +9,23 @@ import { MessagesErviceService } from '../messageSerice/messages-ervice.service'
     MessagesErviceService
   ]
 })
-export class MessagingWindowCompComponent {
+export class MessagingWindowCompComponent implements DoCheck{
+	@ViewChild('messageContainer', {static: true}) scrollEle: any;
+	//local variables and arrays/objects
+	localMessage: [] = [];
+	groupInfoArr: string = '';
+	groupMembers:any;
+	currentChatTime:Date=new Date();
 
 	constructor(private msgService:MessagesErviceService) { 
-		setInterval(()=>{this.messagesFun();},1000);
+		
 	}
+
+	ngDoCheck(): void {
+		this.scrollEle.nativeElement.scrollTop = this.scrollEle.nativeElement.scrollHeight;
+		setInterval(()=>{this.messagesFun();},100);
+	}
+
 	//image urls
 	profileImg: string = '../../assets/user-large.png';
 	fileAttachImg: string = '../../assets/attach-large.png';
@@ -22,12 +34,6 @@ export class MessagingWindowCompComponent {
 	emojiImg: string = '../../assets/emoji-large.png';
 	micImg: string = '../../assets/mic-large.png';
 	sentImg: string = '../../assets/sent-large.png';
-
-	//local variables and arrays/objects
-	localMessage: [] = [];
-	groupInfoArr: string = '';
-	groupMembers:any;
-	currentChatTime:Date=new Date();
 
 	@Input() userChat = '';
 	//function for message
@@ -40,11 +46,11 @@ export class MessagingWindowCompComponent {
 	//initiate the message
 		for(let eachKey in allKeys)
 		{
-		if(allKeys[eachKey]==this.userChat)
-		{
-			let innerData:object = allvalues[eachKey]
-			this.localMessage = Object.values(innerData)[2];
-		}
+			if(allKeys[eachKey]==this.userChat)
+			{
+				let innerData:object = allvalues[eachKey]
+				this.localMessage = Object.values(innerData)[2];
+			}
 		}
 	}
 	// function to set group profile
@@ -61,11 +67,11 @@ export class MessagingWindowCompComponent {
 		this.groupInfoArr = '';
 		for(let eachChat in this.localMessage)
 		{
-		this.groupMembers = (Object.values(this.localMessage[eachChat])[1]);
-		if(this.groupInfoArr.indexOf(this.groupMembers)==-1 || this.groupInfoArr.indexOf(this.groupMembers)==0)
-		{
-			this.groupInfoArr = this.groupInfoArr + Object.values(this.localMessage[eachChat])[1] + ', ';
-		}
+			this.groupMembers = (Object.values(this.localMessage[eachChat])[1]);
+			if(this.groupInfoArr.indexOf(this.groupMembers)==-1 && this.groupMembers.match('you')==null)
+			{
+				this.groupInfoArr = this.groupInfoArr + Object.values(this.localMessage[eachChat])[1] + ', ';
+			}
 		}
 		return this.groupInfoArr;
 	}
@@ -99,12 +105,13 @@ export class MessagingWindowCompComponent {
 	//new text must be added to the message list
 	addText(txt:string)
 	{
+		// this.scrollEle.nativeElement.scrollTop = this.scrollEle.nativeElement.scrollHeight;
 		this.groupInfoArr = '';
-		console.log(document.getElementsByName('textInput'))
 		let setOfChar:string = 'abcdef1234567890';
 		let colorCode = '#'+(setOfChar.split('').sort(() => Math.random() - 0.5).join('')).substring(0,6)
 		let chatTime = this.currentChatTime.getHours()+':'+this.currentChatTime.getMinutes();
 		let textData:any[] = [txt, this.userChat, chatTime, colorCode];
 		this.msgService.addChatFun(textData);
+		
 	}
 }

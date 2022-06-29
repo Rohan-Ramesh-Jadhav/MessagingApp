@@ -20,7 +20,7 @@
         </div>
     </div> 
 <!-- Messaging area -->
-    <div class="messaging-window d-flex flex-column">
+    <div #messageContainer class="messaging-window d-flex flex-column">
 <!-- every message is a bootstrap card -->
         <div *ngFor="let eachMessage of localMessage">
             <div *ngIf="messageUserCheck(eachMessage);then users; else others"></div>
@@ -49,7 +49,7 @@
            <a class="text-link" href="#"><img class="text-bar-icons" [src]="emojiImg"></a>
         </div>
         <div class="d-flex flex-fill input-group align-items-center">
-            <input name ="textInput" #newText type="text" class="form-control" placeholder="Text here" (keyup.enter)="addText(newText.value)">
+            <input #newText type="text" class="form-control" placeholder="Text here" (keyup.enter)="[addText(newText.value),newText.value='']">
             <button class="btn btn-light txt-send-btn p-0" (click)="addText(newText.value)"><img class="w-50" [src]="sentImg"></button>
         </div>    
         <div class="d-flex justify-content-center align-items-center">

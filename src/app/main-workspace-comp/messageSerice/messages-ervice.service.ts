@@ -365,9 +365,6 @@ export class MessagesErviceService {
     };
     
     let userIndex = currentMessage[1];
-
-    
-    this.messageData[userIndex]['chats'].push(messageToInsert)
-    console.log(this.messageData);
+    this.messageData[userIndex]['chats'].push(messageToInsert);
   }
 }

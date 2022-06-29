@@ -104,7 +104,6 @@ export class LeftSlideWindowCompComponent{
   {
     let allKeys:string[] = [];
     let allvalues:object[] = [];
-    let innerKeys:object[] = [];
 
     allKeys = Object.keys(this.msgService.messageData);
     allvalues = Object.values(this.msgService.messageData);
