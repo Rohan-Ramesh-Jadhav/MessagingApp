@@ -3,34 +3,34 @@
     <div class="nav left-slide-nav justify-content-between">
 <!-- profile image section left part of the nav flex -->
         <div class="d-flex justify-content-start">
-            <a href="#"><img [src]="profileImg"></a>
+            <a data-bs-toggle="tooltip" data-bs-placement="right" title="Your Profile" href="#"><img [src]="profileImg"></a>
         </div>
 <!-- right part of nav bar flex -->
         <div class="d-flex justify-content-lg-around align-items-center">
-            <a href="#" class="h-50"><img class="h-100" [src]="messageImg"></a>
-            <a href="#" class="h-50"><img class="h-100" [src]="toggleImg"></a>
+            <a data-bs-toggle="tooltip" data-bs-placement="right" title="New chat" href="#" class="h-50"><img class="h-100" [src]="messageImg"></a>
+            <a data-bs-toggle="tooltip" data-bs-placement="right" title="Menu" href="#" class="h-50"><img class="h-100" [src]="toggleImg"></a>
         </div>
     </div>
 <!-- search bar -->
     <div class="d-flex">
         <div class="input-group search-input m-1">
-            <button class="btn btn-light"><img class="w-50" [src]="searchImg"></button>
-            <input #userSearch (keyup)="filterUserList(userSearch.value)" class="form-control border-0" type="text" placeholder="Search people">
+            <button data-bs-toggle="tooltip" data-bs-placement="right" title="Search Users" class="btn btn-light"><img class="w-50" [src]="searchImg"></button>
+            <input data-bs-toggle="tooltip" data-bs-placement="right" title="Type Users" #userSearch (keyup)="filterUserList(userSearch.value)" class="form-control border-0" type="text" placeholder="Search people">
         </div>
     </div>
 <!-- chatlist [contain people's list whose chat has been initiated] -->
-    <div class="chat-list py-1 h-75">
-        <ul class="list-group">
+    <div class="chat-list py-1 d-flex flex-column flex-fill">
+        <ul class="list-group d-flex flex-grow-1" style="height:61vh">
 <!-- looping through all contact least -->
             <li class="list-group-item d-flex p-0 justify-content-between px-2" *ngFor="let eachContact of Localcontact" [ngStyle]="{'background-color':checkUser(eachContact),'cursor':'pointer'}" (click)="changeChat(eachContact)">
                 <div class="d-flex flex-row align-items-center">
 <!-- this condition will check is profile set or not -->
-                    <div *ngIf="checkDefaultImg(eachContact); then default; else userPro"></div>
-                    <ng-template #default>
-                        <img [src]="profilePic(eachContact)">
-                    </ng-template>
+                    <div></div>
+                    <ng-container *ngIf="checkDefaultImg(eachContact); else userPro">
+                        <img data-bs-toggle="tooltip" data-bs-placement="right" title="{{eachContact}}'s Profile" [src]="profilePic(eachContact)">
+                    </ng-container>
                     <ng-template #userPro>
-                        <img class="profile-img m-1" [src]="profilePic(eachContact)">
+                        <img data-bs-toggle="tooltip" data-bs-placement="right" title="{{eachContact}}'s Profile" class="profile-img m-1" [src]="profilePic(eachContact)">
                     </ng-template>
 <!-- this section will update the last message and contact/group name -->
                     <div class="d-flex flex-column">
@@ -40,10 +40,9 @@
                 </div>
                 <div class="d-flex flex-column align-items-end">
                     <p class="text-black-50 last-updated-time">{{lastUpdateTime(eachContact)}}</p>
-                    <div *ngIf="checkMute(eachContact); then mute;"></div>
-                    <ng-template #mute>
-                        <img class="mute-icon" [src]="muteIcon">
-                    </ng-template>
+                    <ng-container *ngIf="checkMute(eachContact)">
+                        <img data-bs-toggle="tooltip" data-bs-placement="right" title="Muted" class="mute-icon" [src]="muteIcon">
+                    </ng-container>
                 </div>    
             </li>
         </ul>

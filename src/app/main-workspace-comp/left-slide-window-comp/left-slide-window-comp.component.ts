@@ -6,9 +6,9 @@ import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChange
   styleUrls: ['./left-slide-window-comp.component.css'],
 })
 export class LeftSlideWindowCompComponent implements OnChanges{
-  profileImg: string = '../../assets/user-large.png';
+  @Input() profileImg:string = '';
+  @Input() toggleImg:string = '';
   messageImg: string = '../../assets/message-large.png';
-  toggleImg: string = '../../assets/toggle-large.png';
   searchImg: string = '../../assets/search-black-small.png';
   muteIcon: string = '../../assets/mute-small.png';
   leftLastTime: string = '';
@@ -149,16 +149,17 @@ export class LeftSlideWindowCompComponent implements OnChanges{
   }
 // function to filter the user based on the search
   	filterUserList(serchVal:string){
-		this.Localcontact = this.LocalcontactNew;  
-		let TmpLocalcontactNew = [];
-		for(let eachUser in this.Localcontact)
-		{
-			let matchString = this.Localcontact[eachUser].substring(0,serchVal.length)
-			if(matchString.toLowerCase()===serchVal.toLowerCase())
-			{
-				TmpLocalcontactNew.push(this.Localcontact[eachUser])
-			}
-		}
-		this.Localcontact = TmpLocalcontactNew;
+      this.Localcontact = this.LocalcontactNew;  
+      let TmpLocalcontactNew = [];
+      for(let eachUser in this.Localcontact)
+      {
+        
+        let matchString = this.Localcontact[eachUser].substring(0,this.Localcontact[eachUser].length);
+        if(matchString.indexOf(serchVal)>=0)
+        {
+          TmpLocalcontactNew.push(this.Localcontact[eachUser])
+        }
+      }
+      this.Localcontact = TmpLocalcontactNew;
   	}
 }

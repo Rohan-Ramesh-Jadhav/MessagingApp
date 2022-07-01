@@ -4,12 +4,16 @@
         [userChat]="userMain" 
         (newUser)="changeUser($event)"
         [jsonData]="messageData"
+        [profileImg]="profileImg"
+        [toggleImg]="toggleImg"
     >
     </app-left-slide-window-comp>
 <!-- Messaging window component -->
     <app-messaging-window-comp 
         [userChat]="userMain"
         [jsonData]="messageData"
+        [profileImg]="profileImg"
+        [toggleImg]="toggleImg"
         (newMessage)="addChatFun($event)"
         class="w-100" 
         style="background-image: url('../../assets/whatsapp-background.jpg');"

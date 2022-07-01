@@ -8,7 +8,7 @@ import { Component, Input, ViewChild, DoCheck, Output, EventEmitter } from '@ang
 export class MessagingWindowCompComponent implements DoCheck{
 	@ViewChild('messageContainer', {static: true}) scrollEle: any;
 	//local variables and arrays/objects
-	localMessage: [] = [];
+	localMessage: any[] = [];
 	groupInfoArr: string = '';
 	groupMembers:any;
 	currentChatTime:Date=new Date();
@@ -18,14 +18,15 @@ export class MessagingWindowCompComponent implements DoCheck{
 	}
 
 	ngDoCheck(): void {
+		//The below code will scroll down as any message is sent and will be checked based on every change.
 		this.scrollEle.nativeElement.scrollTop = this.scrollEle.nativeElement.scrollHeight;
 		setTimeout(()=>{this.messagesFun();},100);
 	}
 
 	//image urls
-	profileImg: string = '../../assets/user-large.png';
+	@Input() profileImg: string = '';
 	fileAttachImg: string = '../../assets/attach-large.png';
-	toggleImg: string = '../../assets/toggle-large.png';
+	@Input() toggleImg: string = '';
 	searchImg: string = '../../assets/search-gray-large.png';
 	emojiImg: string = '../../assets/emoji-large.png';
 	micImg: string = '../../assets/mic-large.png';
@@ -73,50 +74,30 @@ export class MessagingWindowCompComponent implements DoCheck{
 		}
 		return this.groupInfoArr;
 	}
-	// function to check the user
-	messageUserCheck(eachMessage:object){
-		if(Object.values(eachMessage)[1]=='you'){
-		return true;
-		}
-		else
-		{
-		return false;
-		}
-	}
-	// background color to the cards 
-	bgCardColor(eachMessage:object){
-		return Object.values(eachMessage)[3];
-	}
-	//name function willset the name for each chat [who sent the message]
-	nameFun(eachMessage:object){
-		return Object.values(eachMessage)[1];
-	}
-	//message sent by each chatter function
-	messageSent(eachMessage:object){
-		return Object.values(eachMessage)[0];
-	}
-	//time of chat sent or made
-	timeSent(eachMessage:object){
-		return Object.values(eachMessage)[2];
-	}
-
+	
 	//new text must be added to the message list
 	addText(txt:string)
 	{
-		// this.scrollEle.nativeElement.scrollTop = this.scrollEle.nativeElement.scrollHeight;
-		this.groupInfoArr = '';
-		let setOfChar:string = 'abcdef1234567890';
-		let colorCode = '#'+(setOfChar.split('').sort(() => Math.random() - 0.5).join('')).substring(0,6);
-		let chatTime:string;
-		if(this.currentChatTime.getHours()>12)
-		{
-			chatTime = this.currentChatTime.getHours()-12+':'+this.currentChatTime.getMinutes()+'PM';
+		for(let eachChar in txt.split('')){
+			console.log(txt[eachChar])
+			if(txt[eachChar]!= '' && txt[eachChar]!= ' ')
+			{
+				this.groupInfoArr = '';
+				let setOfChar:string = 'abcdef1234567890';
+				let colorCode = '#'+(setOfChar.split('').sort(() => Math.random() - 0.5).join('')).substring(0,6);
+				let chatTime:string;
+				if(this.currentChatTime.getHours()>12)
+				{
+					chatTime = this.currentChatTime.getHours()-12+':'+this.currentChatTime.getMinutes()+'PM';
+				}
+				else
+				{
+					chatTime = this.currentChatTime.getHours()+':'+this.currentChatTime.getMinutes()+'AM';
+				}
+				let textData:any[] = [txt, this.userChat, chatTime, colorCode];
+				this.newMessage.emit(textData);
+				break
+			}
 		}
-		else
-		{
-			chatTime = this.currentChatTime.getHours()+':'+this.currentChatTime.getMinutes()+'AM';
-		}
-		let textData:any[] = [txt, this.userChat, chatTime, colorCode];
-		this.newMessage.emit(textData);
 	}
 }

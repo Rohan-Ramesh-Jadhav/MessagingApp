@@ -14,6 +14,8 @@ export class MainWorkspaceCompComponent implements OnInit {
 	}
 
 //global values
+	profileImg: string = '../assets/user-large.png';
+	toggleImg: string = '../assets/toggle-large.png';
 	userMain:string = 'user1';
 	messageData: any = {
 		"user1": {
